@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>23 Reasons — Diyuuu 🌟</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --pink:#f472b6;--purple:#a855f7;--deep:#1a0535;--gold:#fbbf24;
+  --card-bg:rgba(255,255,255,0.04);--border:rgba(255,255,255,0.1);
+}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;background:#08050f;
+  font-family:'Nunito',sans-serif;color:#fff;
+  overflow-x:hidden;
+}
+
+/* ── BACKGROUND ── */
+.bg-layer{position:fixed;inset:0;z-index:0;pointer-events:none}
+.bg-layer::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 15% 20%,rgba(168,85,247,.18) 0%,transparent 55%),
+    radial-gradient(ellipse at 85% 75%,rgba(244,114,182,.14) 0%,transparent 55%),
+    radial-gradient(ellipse at 50% 50%,rgba(30,10,70,.9) 0%,transparent 80%),
+    #08050f;
+}
+
+/* ── FLOATING PARTICLES ── */
+.particle{position:fixed;pointer-events:none;z-index:1;border-radius:50%;animation:floatUp linear infinite;opacity:0}
+@keyframes floatUp{0%{opacity:0;transform:translateY(100vh) scale(.3)}10%{opacity:.4}90%{opacity:.15}100%{opacity:0;transform:translateY(-10vh) scale(1)}}
+
+/* ── HERO ── */
+.hero{
+  position:relative;z-index:10;
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:80px 20px 40px;text-align:center;
+}
+.hero-number{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(7rem,25vw,14rem);
+  font-weight:900;line-height:.85;
+  background:linear-gradient(135deg,#f472b6,#a855f7,#fbbf24,#f472b6);
+  background-size:300%;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 4s linear infinite;
+  filter:drop-shadow(0 0 60px rgba(244,114,182,.4));
+}
+@keyframes shimmer{0%{background-position:0%}100%{background-position:300%}}
+.hero-label{
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(1.4rem,5vw,2.2rem);
+  color:rgba(255,255,255,.7);
+  letter-spacing:.06em;margin-top:8px;
+}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,6vw,3.2rem);
+  font-weight:700;font-style:italic;
+  color:#fff;margin-top:16px;line-height:1.2;
+  text-shadow:0 0 40px rgba(244,114,182,.5);
+}
+.hero-sub{
+  font-size:clamp(.95rem,3vw,1.15rem);
+  color:rgba(255,255,255,.5);
+  font-family:'Dancing Script',cursive;
+  margin-top:10px;
+}
+.hero-panda{font-size:clamp(3rem,10vw,5rem);margin-top:20px;animation:pandaBob 3s ease-in-out infinite}
+@keyframes pandaBob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+.scroll-hint{
+  margin-top:32px;display:flex;flex-direction:column;align-items:center;gap:6px;
+  animation:fadeInUp 1s ease 1s both;
+}
+.scroll-hint span{font-size:.85rem;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase}
+.scroll-arrow{width:2px;height:40px;background:linear-gradient(to bottom,transparent,rgba(244,114,182,.6));animation:scrollPulse 1.5s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.8)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ── GRID ── */
+.grid-section{
+  position:relative;z-index:10;
+  padding:60px 20px 100px;
+  max-width:900px;margin:0 auto;
+}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:18px}
+
+/* ── CARDS ── */
+.card{
+  position:relative;border-radius:20px;
+  padding:24px 22px;cursor:default;
+  background:var(--card-bg);
+  border:1.5px solid var(--border);
+  backdrop-filter:blur(12px);
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,border-color .3s;
+  animation:cardIn .6s cubic-bezier(.34,1.56,.64,1) both;
+  overflow:hidden;
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(30px) scale(.95)}to{opacity:1;transform:none}}
+.card::before{
+  content:'';position:absolute;inset:0;border-radius:20px;
+  background:linear-gradient(135deg,var(--c1,rgba(244,114,182,.08)),var(--c2,rgba(168,85,247,.08)));
+  opacity:0;transition:opacity .3s;
+}
+.card:hover{transform:translateY(-6px) scale(1.02);border-color:rgba(244,114,182,.4);box-shadow:0 20px 50px rgba(0,0,0,.4),0 0 30px rgba(244,114,182,.12)}
+.card:hover::before{opacity:1}
+.card-num{
+  font-family:'Playfair Display',serif;
+  font-size:2.6rem;font-weight:900;
+  background:linear-gradient(135deg,var(--nc1,#f472b6),var(--nc2,#a855f7));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;margin-bottom:8px;
+}
+.card-emoji{font-size:1.6rem;margin-bottom:8px;display:block}
+.card-text{
+  font-size:.95rem;line-height:1.65;
+  color:rgba(255,255,255,.82);font-weight:600;
+}
+.card-text em{font-style:italic;color:var(--pink);font-family:'Dancing Script',cursive;font-size:1.05rem}
+
+/* ── COLOR VARIANTS ── */
+.card:nth-child(3n+1){--c1:rgba(244,114,182,.1);--c2:rgba(168,85,247,.06);--nc1:#f472b6;--nc2:#ec4899}
+.card:nth-child(3n+2){--c1:rgba(168,85,247,.1);--c2:rgba(99,102,241,.06);--nc1:#a855f7;--nc2:#7c3aed}
+.card:nth-child(3n){--c1:rgba(251,191,36,.08);--c2:rgba(244,114,182,.08);--nc1:#fbbf24;--nc2:#f97316}
+
+/* ── WIDE CARD ── */
+.card.wide{grid-column:1/-1}
+
+/* ── FINAL ── */
+.final{
+  position:relative;z-index:10;
+  text-align:center;padding:40px 20px 100px;
+}
+.final-inner{
+  display:inline-flex;flex-direction:column;align-items:center;gap:16px;
+  background:linear-gradient(135deg,rgba(244,114,182,.08),rgba(168,85,247,.08));
+  border:1.5px solid rgba(244,114,182,.25);
+  border-radius:28px;padding:40px 36px;
+  max-width:500px;width:100%;
+  box-shadow:0 0 80px rgba(244,114,182,.08);
+}
+.final-emoji{font-size:3.5rem;animation:pandaBob 3s ease-in-out infinite}
+.final-msg{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.4rem,4vw,1.9rem);
+  font-style:italic;color:#fff;line-height:1.4;
+  text-shadow:0 0 20px rgba(244,114,182,.4);
+}
+.final-sub{
+  font-family:'Dancing Script',cursive;
+  font-size:1.1rem;color:rgba(255,255,255,.6);
+}
+.final-sign{
+  font-family:'Dancing Script',cursive;
+  font-size:1.3rem;color:var(--pink);margin-top:4px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+/* ── SCROLL REVEAL ── */
+.card{opacity:0}
+.card.visible{animation:cardIn .6s cubic-bezier(.34,1.56,.64,1) both}
+
+/* ── RAGE METER ── */
+#rage-bar{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  background:rgba(10,3,25,.92);backdrop-filter:blur(10px);
+  padding:8px 16px;display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid rgba(192,132,252,.2);
+}
+#rage-label{font-size:.75rem;color:rgba(255,255,255,.5);white-space:nowrap;letter-spacing:.05em;text-transform:uppercase}
+#rage-track{flex:1;height:8px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+#rage-fill{height:100%;width:30%;border-radius:99px;transition:width 1.2s cubic-bezier(.4,0,.2,1),background 1.2s;background:linear-gradient(90deg,#34d399,#a855f7)}
+#rage-mood{font-size:1rem;min-width:28px;text-align:center;transition:all .4s}
+#rage-text{font-size:.72rem;color:rgba(255,255,255,.6);min-width:110px;transition:all .4s;font-family:'Dancing Script',cursive}
+
+/* ── SORRY COUNTER ── */
+#sorry-counter{
+  position:relative;z-index:10;
+  text-align:center;padding:30px 20px 0;
+}
+.sorry-box{
+  display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+  background:rgba(244,114,182,.06);border:1.5px solid rgba(244,114,182,.2);
+  border-radius:20px;padding:20px 36px;
+}
+.sorry-label{font-size:.8rem;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase}
+.sorry-num{
+  font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:900;
+  background:linear-gradient(135deg,#f472b6,#fbbf24);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;
+}
+.sorry-sub{font-size:.78rem;color:rgba(255,255,255,.35);font-family:'Dancing Script',cursive;font-size:.95rem}
+
+/* ── LOCKED CARD ── */
+.card.locked{position:relative;cursor:pointer}
+.card-lock-overlay{
+  position:absolute;inset:0;border-radius:20px;
+  background:rgba(10,3,25,.85);backdrop-filter:blur(6px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  transition:opacity .4s;z-index:5;
+}
+.lock-icon{font-size:2rem}
+.lock-hint{font-size:.78rem;color:rgba(255,255,255,.55);text-align:center;padding:0 10px;font-family:'Dancing Script',cursive;font-size:.95rem}
+.lock-input-wrap{display:flex;gap:6px;margin-top:4px}
+.lock-input{
+  background:rgba(255,255,255,.08);border:1.5px solid rgba(192,132,252,.4);
+  border-radius:10px;padding:8px 12px;color:#fff;font-family:'Nunito',sans-serif;
+  font-size:.85rem;width:110px;outline:none;text-align:center;
+}
+.lock-btn{
+  background:linear-gradient(135deg,#ec4899,#a855f7);border:none;
+  border-radius:10px;padding:8px 14px;color:#fff;font-family:'Nunito',sans-serif;
+  font-size:.85rem;font-weight:800;cursor:pointer;
+}
+.lock-wrong{font-size:.75rem;color:#f87171;margin-top:2px;display:none;font-style:italic}
+
+/* ── CONFETTI ── */
+.conf{position:fixed;pointer-events:none;z-index:999;border-radius:3px;animation:confFall linear forwards}
+@keyframes confFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
+</style>
+</head>
+<body>
+
+<div class="bg-layer"></div>
+
+<!-- Music -->
+<audio id="bgMusic" loop src="pretty-baby.mp3"></audio>
+<button id="music-btn" onclick="toggleMusic()" style="position:fixed;bottom:22px;right:22px;z-index:500;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#c026d3);border:none;cursor:pointer;font-size:1.3rem;box-shadow:0 4px 18px rgba(192,38,211,.55);transition:transform .18s;opacity:.4" title="Toggle Music">🎵</button>
+
+<!-- RAGE METER -->
+<div id="rage-bar">
+  <span id="rage-label">Diyuuu's mood</span>
+  <div id="rage-track"><div id="rage-fill"></div></div>
+  <span id="rage-mood">😊</span>
+  <span id="rage-text">Khush hai abhi</span>
+</div>
+
+<!-- SORRY COUNTER -->
+<div id="sorry-counter">
+  <div class="sorry-box">
+    <span class="sorry-label">Satuu has said "Sorry Diyuuu"</span>
+    <span class="sorry-num" id="sorry-num">0</span>
+    <span class="sorry-sub">times… and counting 😂</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-number">23</div>
+  <div class="hero-label">reasons why</div>
+  <h1 class="hero-title">You're Absolutely Amazing,<br>Diyuuu</h1>
+  <p class="hero-sub">…not that you needed confirmation, but here we are 😏</p>
+  <div class="hero-panda">🐼</div>
+  <div class="scroll-hint">
+    <span>scroll down</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- REASONS GRID -->
+<section class="grid-section">
+  <div class="grid" id="grid">
+
+    <div class="card">
+      <span class="card-emoji">💸</span>
+      <div class="card-num">01</div>
+      <p class="card-text">You are the most kaanjoos person I have ever met in my life. Saving money like it's a competitive sport. <em>And somehow still the most generous when it actually matters. Contradiction of the century.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">😭</span>
+      <div class="card-num">02</div>
+      <p class="card-text">You cry at literally everything — movies, songs, good news, bad news, and probably this page right now. <em>That sensitivity? It means you feel deeply. That's a superpower.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">⚔️</span>
+      <div class="card-num">03</div>
+      <p class="card-text">You fight with me like it's your part-time job. And somehow I always end up saying sorry. <em>I still don't know how you do that. Teach me.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🎁</span>
+      <div class="card-num">04</div>
+      <p class="card-text">Every time I gift you something, YOU feel guilty. I'm the one giving the gift and YOU apologise. <em>Diyuuu. That's not how gifting works. Please read a manual.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🙅</span>
+      <div class="card-num">05</div>
+      <p class="card-text">If I try to do ANYTHING for you — plan something, help you, surprise you — you say NO. Every single time. <em>"Mat kar," "rehne de," "koi zaroorat nahi." Diyuuu I'm trying to be a good friend here. LET ME.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">📞</span>
+      <div class="card-num">06</div>
+      <p class="card-text">Whenever you cry — and we both know that's very often 😂 — you call me. Not anyone else. Me. <em>That's the most quietly beautiful thing. Thank you for trusting me with your tears.</em></p>
+    </div>
+
+    <div class="card locked" id="locked-card">
+      <span class="card-emoji">💅</span>
+      <div class="card-num">07</div>
+      <p class="card-text">You are fully, completely, unapologetically aware of how pretty you are. No fake modesty, no "arre nahi yaar." Just straight up — <em>"haan main sundar hun."</em> Honestly? Correct. But also you say it too much. We get it Diyuuu. 😂</p>
+      <div class="card-lock-overlay" id="lock-overlay">
+        <span class="lock-icon">🔒</span>
+        <span class="lock-hint">Satuu ne kitni baar "Sorry Diyuuu" bola hai?<br>(hint: teen digit number 😂)</span>
+        <div class="lock-input-wrap">
+          <input class="lock-input" id="lock-input" type="number" placeholder="e.g. 847" onkeydown="if(event.key==='Enter')checkLock()"/>
+          <button class="lock-btn" onclick="checkLock()">🔓</button>
+        </div>
+        <span class="lock-wrong" id="lock-wrong">Galat! Aur zyada tha 😂 Try again!</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">😤</span>
+      <div class="card-num">08</div>
+      <p class="card-text">Your fighting style is elite — you make your point, go quiet, and somehow I feel guilty even when I think I'm right. <em>Genuine talent. 10/10.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🌊</span>
+      <div class="card-num">09</div>
+      <p class="card-text">You feel everything fully — joy, sadness, anger, love. You never do anything halfway. <em>That's what makes you unforgettable.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🧾</span>
+      <div class="card-num">10</div>
+      <p class="card-text">You understand debits, credits, tax laws AND still manage to be a normal fun human being. Most CA students lose that. <em>You didn't. That's rare.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🏠</span>
+      <div class="card-num">11</div>
+      <p class="card-text">Every plan, every outing, every fun moment ends with — <em>"yaar ab mujhe ghar jaana hai."</em> And somewhere in between you also want hybrid job, ghar ka khaana, and zero commute. Queen of work-life balance demands. Respect.</p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">😂</span>
+      <div class="card-num">12</div>
+      <p class="card-text">The number of times I've said "Sorry Diyuuu" is statistically significant at this point. You've trained me well. <em>Honestly, I respect it.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🎬</span>
+      <div class="card-num">13</div>
+      <p class="card-text">The drama. OH THE DRAMA. A 2 minute problem becomes a 2 hour saga. Background music hona chahiye jab tu baat karti hai. <em>Bollywood missed out on a serious talent when you chose CA.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🎭</span>
+      <div class="card-num">14</div>
+      <p class="card-text">You go from zero to full emotional in 0.3 seconds — crying, laughing, fighting, forgiving — all in one hour. <em>Living with you must be a Bollywood film.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🧳</span>
+      <div class="card-num">15</div>
+      <p class="card-text">IRCTC tatkal, waiting list, platform number, train timing — all come to me. You couldn't book a ticket to save your life. <em>And somehow you're the CA. The irony is not lost on me.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">💰</span>
+      <div class="card-num">16</div>
+      <p class="card-text">You will negotiate 10 rupees at a sabzi wala but won't let me spend 500 on your birthday gift without 20 minutes of "yaar mat kar." <em>Kaanjoos but also chaos. Iconic combination.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🌧️</span>
+      <div class="card-num">17</div>
+      <p class="card-text">You cry when you're happy. You cry when you're sad. You're probably crying reading this. <em>And every single tear means something real. That's beautiful, Diyuuu.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🍞</span>
+      <div class="card-num">18</div>
+      <p class="card-text">Mahalaxmi pav bhaji. That's your entire personality. Hungry? Pav bhaji. Sad? Pav bhaji. Celebrating? Pav bhaji. Someone asks "kahan jaana hai?" and your brain has already computed the answer before the question finished. <em>A CA who solves complex tax problems but her biggest life decision is always the same one. Iconic.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🐼</span>
+      <div class="card-num">19</div>
+      <p class="card-text">You're soft like a panda, stubborn like a panda, and you eat a lot like a panda. <em>Iconic. Consistent. Peak panda energy.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🎟️</span>
+      <div class="card-num">20</div>
+      <p class="card-text">The day you book your own train ticket without asking me is the day I will cry. <em>Because it means you're growing up. Please don't grow up. I like being needed.</em></p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🤡</span>
+      <div class="card-num">21</div>
+      <p class="card-text">Khud Pune choose kiya. Khud gayi. Aur ab roz "mujhe ghar jaana hai, hybrid job chahiye, Ahmedabad mein kaam karna hai." Diyuuu — <em>yeh decision tumne liya tha. Humne nahi. Khud ke pairon pe kulhaadi maari aur ab hum sab se sympathy chahiye.</em> Iconic self-goal. Respect. 😂</p>
+    </div>
+
+    <div class="card">
+      <span class="card-emoji">🙏</span>
+      <div class="card-num">22</div>
+      <p class="card-text">For every "Sorry Diyuuu" I've said — I meant it. Because you matter enough to apologise to. <em>Not everyone does. You do.</em></p>
+    </div>
+
+    <div class="card wide">
+      <span class="card-emoji">🌠</span>
+      <div class="card-num">23</div>
+      <p class="card-text" style="font-size:1.05rem;line-height:1.8">
+        You're a CA, an emotional crier, a fierce fighter, and somehow still the kindest person I know. On your birthday you wished for <em>"best friends forever"</em> — not money, not success, not things. Just people. That's who you are, Diyuuu. And that's exactly why the world is better with you in it. <em>Happy Birthday. Sorry for everything. Thank you for everything. 💕</em>
+      </p>
+    </div>
+
+  </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="final-inner">
+    <div class="final-emoji">🐼</div>
+    <p class="final-msg">"Stay exactly as wonderful<br>as you already are."</p>
+    <p class="final-sub">Happy 23rd, Diyuuu 🎂✨</p>
+    <p class="final-sign">— satuu 😝💕</p>
+  </div>
+</section>
+
+<script>
+// ── 🎵 Music — starts on first tap ──
+let musicStarted=false;
+const bgMusic=document.getElementById('bgMusic');
+bgMusic.volume=0.5;
+function startMusicOnce(){
+  if(musicStarted)return;
+  musicStarted=true;
+  bgMusic.play().then(()=>{
+    const btn=document.getElementById('music-btn');
+    btn.textContent='🔇';btn.style.opacity='1';
+  }).catch(()=>{});
+}
+function toggleMusic(){
+  const btn=document.getElementById('music-btn');
+  if(bgMusic.paused){bgMusic.play();btn.textContent='🔇';btn.style.opacity='1';}
+  else{bgMusic.pause();btn.textContent='🎵';btn.style.opacity='.4';}
+}
+document.addEventListener('click',startMusicOnce,{once:true});
+document.addEventListener('touchstart',startMusicOnce,{once:true,passive:true});
+// ── Particles ──
+const B=document.body;
+['💕','✨','🌸','⭐','💫','🩷'].forEach(c=>{
+  for(let i=0;i<5;i++){
+    const el=document.createElement('span');
+    el.className='particle';
+    el.textContent=c;
+    el.style.cssText=`left:${Math.random()*100}%;font-size:${Math.random()*10+8}px;animation-duration:${Math.random()*12+10}s;animation-delay:${Math.random()*15}s`;
+    B.appendChild(el);
+  }
+});
+
+// ── Scroll reveal ──
+const cards=document.querySelectorAll('.card');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),i*60);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:.15});
+cards.forEach(c=>obs.observe(c));
+
+// ══════════════════════════════════
+// FEATURE 2 — RAGE METER
+// ══════════════════════════════════
+const MOODS=[
+  {pct:8, bg:'linear-gradient(90deg,#34d399,#22d3ee)', icon:'😊', text:'Khush hai abhi'},
+  {pct:30,bg:'linear-gradient(90deg,#a855f7,#6366f1)',icon:'🙄',text:'"Hmm..." mode on'},
+  {pct:55,bg:'linear-gradient(90deg,#f97316,#f59e0b)',icon:'😤',text:'Lad rahi hai'},
+  {pct:75,bg:'linear-gradient(90deg,#ef4444,#f97316)',icon:'😭',text:'Ro rahi hai'},
+  {pct:90,bg:'linear-gradient(90deg,#ec4899,#a855f7)',icon:'🏠',text:'Ghar jaana hai'},
+  {pct:20,bg:'linear-gradient(90deg,#34d399,#a855f7)',icon:'😂',text:'Satuu ne maafi maangi'},
+];
+let moodIdx=0;
+function cycleMood(){
+  moodIdx=(moodIdx+1)%MOODS.length;
+  const m=MOODS[moodIdx];
+  document.getElementById('rage-fill').style.width=m.pct+'%';
+  document.getElementById('rage-fill').style.background=m.bg;
+  document.getElementById('rage-mood').textContent=m.icon;
+  document.getElementById('rage-text').textContent=m.text;
+}
+setInterval(cycleMood,2800);
+
+// ══════════════════════════════════
+// FEATURE 3 — PASSWORD LOCKED CARD
+// ══════════════════════════════════
+// Any 3-digit number works (she won't know exact count — that's the joke!)
+function checkLock(){
+  const val=document.getElementById('lock-input').value.trim();
+  const wrong=document.getElementById('lock-wrong');
+  if(val.length>=3 && !isNaN(val)){
+    // Any answer that's 3 digits unlocks — because "who's counting" 😂
+    document.getElementById('lock-overlay').style.opacity='0';
+    setTimeout(()=>document.getElementById('lock-overlay').style.display='none',400);
+    wrong.style.display='none';
+    // Little burst
+    launchConfetti(50);
+  } else {
+    wrong.style.display='block';
+    document.getElementById('lock-input').style.borderColor='#f87171';
+    setTimeout(()=>{
+      wrong.style.display='none';
+      document.getElementById('lock-input').style.borderColor='rgba(192,132,252,.4)';
+    },2000);
+  }
+}
+
+// ══════════════════════════════════
+// FEATURE 4 — SORRY COUNTER
+// ══════════════════════════════════
+let sorryCount=0;
+const sorryTarget=847;
+const sorryEl=document.getElementById('sorry-num');
+// Count up fast then slow
+function countSorry(){
+  if(sorryCount<sorryTarget){
+    const step=sorryCount<700?Math.floor(Math.random()*18+8):1;
+    sorryCount=Math.min(sorryCount+step,sorryTarget);
+    sorryEl.textContent=sorryCount;
+    setTimeout(countSorry,sorryCount<700?18:120);
+  }
+}
+setTimeout(countSorry,800);
+// Keep ticking after reaching target (slowly, forever)
+setInterval(()=>{
+  sorryTarget && (sorryCount+=1,sorryEl.textContent=sorryCount);
+},8000);
+
+// ══════════════════════════════════
+// FEATURE 5 — CONFETTI ON LAST CARD
+// ══════════════════════════════════
+const CC=['#f472b6','#a855f7','#fbbf24','#22d3ee','#34d399','#fb923c','#fda4af','#fff'];
+function launchConfetti(count=120){
+  for(let i=0;i<count;i++){
+    const el=document.createElement('div');
+    el.className='conf';
+    const sz=Math.random()*10+4;
+    el.style.cssText=`left:${Math.random()*100}vw;top:-10px;width:${sz}px;height:${sz*0.5}px;background:${CC[~~(Math.random()*CC.length)]};border-radius:${Math.random()>.5?'50%':'2px'};animation-duration:${Math.random()*3+2.5}s;animation-delay:${Math.random()*1.5}s`;
+    B.appendChild(el);
+    el.addEventListener('animationend',()=>el.remove());
+  }
+}
+
+// Watch for card 23 (wide card) coming into view
+const lastCard=document.querySelector('.card.wide');
+let confettiFired=false;
+const lastObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&!confettiFired){
+      confettiFired=true;
+      launchConfetti(120);
+      setTimeout(()=>launchConfetti(80),800);
+      setTimeout(()=>launchConfetti(60),1600);
+    }
+  });
+},{threshold:.4});
+if(lastCard)lastObs.observe(lastCard);
+</script>
+</body>
+</html>
